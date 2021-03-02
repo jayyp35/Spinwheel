@@ -38,10 +38,28 @@ function create() {
     
     this.stand = this.add.sprite(w/2,0.96*h,'stand')
     this.stand.setScale(0.1)
+
+
+    //eventlistener
+    this.input.on("pointerdown",spinwheel,this)
+
+    //create text obj
+    font_style = {
+        font: "bold 10pt Roboto",
+        align: "center",
+        ccolor: "red",
+    }
+    this.game_text = this.add.text(10,10,"Welcome to spin and win",font_style)
 }
+
 
 function update() {
     console.log("Inside update");
     this.wheel.angle += 2
 }
 
+function spinwheel() {
+    console.log("mouse clicked");
+    console.log("Start spin");
+    this.game_text.setText("You clicked the mouse")
+}
